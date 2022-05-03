@@ -13,8 +13,8 @@ import androidx.fragment.app.Fragment
 class MenuListFragment : Fragment() {
     private var _isLayoutXLarge = true
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        super.onViewStateRestored(savedInstanceState)
 
         val menuThanksFrame = activity?.findViewById<View>(R.id.menuThanksFrame)
 
@@ -101,13 +101,15 @@ class MenuListFragment : Fragment() {
             bundle.putString("menuPrice", menuPrice)
 
             if(_isLayoutXLarge) {
-                val transaction = parentFragmentManager?.beginTransaction()
+                val transaction = parentFragmentManager.beginTransaction()
 
                 val menuThanksFragment = MenuThanksFragment()
 
                 menuThanksFragment.arguments = bundle
 
-                transaction?.commit()
+                transaction.replace(R.id.menuThanksFrame, menuThanksFragment)
+
+                transaction.commit()
             }
             else {
                 val intent2MenuThanks = Intent(activity, MenuThanksActivity::class.java)

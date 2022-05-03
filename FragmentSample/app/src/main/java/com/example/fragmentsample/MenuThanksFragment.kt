@@ -14,7 +14,7 @@ class MenuThanksFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val menuListFragment = parentFragmentManager?.findFragmentById(R.id.fragmentMenuList)
+        val menuListFragment = parentFragmentManager.findFragmentById(R.id.fragmentMenuList)
 
         if(menuListFragment == null) {
             _isLayoutXLarge = false
@@ -57,11 +57,11 @@ class MenuThanksFragment : Fragment() {
     private inner class ButtonClickListener : View.OnClickListener{
         override fun onClick(view: View) {
             if(_isLayoutXLarge) {
-                val transaction = parentFragmentManager?.beginTransaction()
+                val transaction = parentFragmentManager.beginTransaction()
 
-                transaction?.remove(this@MenuThanksFragment)
+                transaction.remove(this@MenuThanksFragment)
 
-                transaction?.commit()
+                transaction.commit()
             }
             else {
                 activity?.finish()
