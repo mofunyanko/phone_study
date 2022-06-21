@@ -1,3 +1,5 @@
+// 新たなToDoを作成
+
 package com.example.todoapp
 
 import android.os.Bundle
@@ -29,7 +31,8 @@ class AddActivity : AppCompatActivity() {
 
         // 引数のToDoDataの内容をデータベースに送る
         val toDoData = ToDoData(key, title, content)
-        reference.child("users").child(uid).child(key!!).setValue(toDoData)
-            .addOnSuccessListener { finish() }
+        reference.child("users").child(uid).child(key!!).setValue(toDoData).addOnSuccessListener {
+            finish()
+        }
     }
 }

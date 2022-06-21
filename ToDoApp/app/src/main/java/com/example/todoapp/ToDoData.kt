@@ -1,3 +1,5 @@
+// ToDoの情報を持つクラス
+
 package com.example.todoapp
 
 class ToDoData {

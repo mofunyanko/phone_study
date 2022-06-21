@@ -1,3 +1,4 @@
+// メールアカウントを新規作成・ログイン
 package com.example.todoapp
 
 import android.app.AlertDialog
@@ -16,9 +17,15 @@ class MainActivity : AppCompatActivity() {
     var passwordFormEditText: EditText? = null
     var data: Intent? = null
     var mAuth: FirebaseAuth? = null
+
+    companion object {
+        private const val TAG = "EmailPassword"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         emailFormEditText = findViewById(R.id.email_log_in_edit_text)
         passwordFormEditText = findViewById(R.id.password_log_in_edit_text)
         mAuth = FirebaseAuth.getInstance()
@@ -59,7 +66,8 @@ class MainActivity : AppCompatActivity() {
                     changeActivity()
                 } else { // サインインに失敗した場合は、ユーザーにメッセージを表示
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
-                    Toast.makeText(this@MainActivity, "Authentication failed.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@MainActivity, "Authentication failed.", Toast.LENGTH_SHORT)
+                        .show()
                 }
             }
     }
@@ -93,9 +101,5 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, ToDoActivity::class.java)
         startActivity(intent)
         finish()
-    }
-
-    companion object {
-        private const val TAG = "EmailPassword"
     }
 }

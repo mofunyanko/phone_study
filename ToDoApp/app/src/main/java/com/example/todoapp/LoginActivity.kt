@@ -1,3 +1,5 @@
+// Googleアカウントでログイン
+
 package com.example.todoapp
 
 import android.content.Intent
@@ -32,7 +34,7 @@ class LoginActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLis
     }
 
     private fun changeActivity() {
-        val intent = Intent(this, ToDoActivity::class.java)
+        val intent = Intent(this@LoginActivity, ToDoActivity::class.java)
         startActivity(intent)
         finish()
     }

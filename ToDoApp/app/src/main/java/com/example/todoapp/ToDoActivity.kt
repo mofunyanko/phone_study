@@ -1,3 +1,5 @@
+// Todoを表示
+
 package com.example.todoapp
 
 import android.app.AlertDialog
@@ -77,7 +79,7 @@ class ToDoActivity : AppCompatActivity(), OnItemLongClickListener {
     }
 
     fun addButton(v: View?) {
-        val intent = Intent(this, AddActivity::class.java)
+        val intent = Intent(this@ToDoActivity, AddActivity::class.java)
         startActivity(intent)
     }
 

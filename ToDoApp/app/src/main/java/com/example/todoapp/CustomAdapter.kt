@@ -1,3 +1,5 @@
+// ArrayAdapterを継承している自作クラス
+
 package com.example.todoapp
 
 import android.content.Context
