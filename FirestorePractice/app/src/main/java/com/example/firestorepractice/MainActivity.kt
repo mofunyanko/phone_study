@@ -48,6 +48,7 @@ class MainActivity : AppCompatActivity() {
 
         // アプリ起動時に保存されているデータを取得
         db.collection("tasks")
+            .orderBy("createdAt") // 日付・時間に沿って昇順に並べる
             .get()
             .addOnSuccessListener { tasks -> val taskList = ArrayList<Task>()
                 tasks.forEach {taskList.add(it.toObject(Task::class.java)) }
